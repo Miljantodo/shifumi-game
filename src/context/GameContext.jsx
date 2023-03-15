@@ -3,7 +3,7 @@ import { createContext, useState } from "react";
 export const GameContext = createContext();
 
 export const GameContextProvider = ({ children }) => {
-  const [nickname, setNickname] = useState("Miki");
+  const [nickname, setNickname] = useState("Player");
   const [rounds, setRounds] = useState(1);
   const [score, setScore] = useState({ user: 0, house: 0 });
 
