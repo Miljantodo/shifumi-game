@@ -1,0 +1,36 @@
+.overlay {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color:rgb(255, 255, 240, 0.2);
+    overflow-y: none;
+  }
+  .modal{
+    width: 300px;
+    border: 1px solid rgb(204, 204, 204);
+    background: rgb(255, 255, 255);
+    overflow: auto;
+    border-radius: 4px;
+    outline: none;
+    padding: 20px;
+  }
+
+
+.game_rules{
+    background:none;
+    border: none;
+    cursor: pointer;
+    color: #3B4584;
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+  }
+  .game_rules:hover{
+    color: #F8F6FF;
+  }

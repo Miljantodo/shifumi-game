@@ -1,4 +1,3 @@
-import * as Label from "@radix-ui/react-label";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "../../components/button/Button";
@@ -12,20 +11,19 @@ const ResultPage = () => {
 
   return (
     <Layout>
-      {" "}
-      <Label.Root className={classes.LabelRoot} htmlFor="nickname">
+      <label className={classes.LabelRoot} htmlFor="nickname">
         Nickname: {nickname}
-      </Label.Root>
+      </label>
       <br />
-      <Label.Root className={classes.LabelRoot} htmlFor="nickname">
+      <label className={classes.LabelRoot} htmlFor="nickname">
         Rounds: {rounds}
-      </Label.Root>
+      </label>
       <br />
-      <Label.Root className={classes.LabelRoot} htmlFor="nickname">
+      <label className={classes.LabelRoot} htmlFor="nickname">
         Score: <br />
         {nickname} wins:{score.user}
         <br /> House wins: {score.house}
-      </Label.Root>
+      </label>
       <br />
       <Button
         onClick={() => {

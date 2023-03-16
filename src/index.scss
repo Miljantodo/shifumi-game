@@ -1,9 +1,25 @@
+@import url('https://fonts.cdnfonts.com/css/maldini');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 body {
   margin: 0;
 }
 
 
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
 #root {
-  background-image: linear-gradient(330deg, hsl(272, 53%, 50%) 0%, hsl(226, 68%, 56%) 100%);
+  background-image: url("../src/assets/background-gradient.svg");
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
 }
