@@ -8,15 +8,18 @@ import GameRules from "./game-rules/GameRules";
 import classes from "./StartPage.module.scss";
 
 const StartPage = () => {
-  const { nickname, setNickname, rounds, setRounds } = useGameContext();
+  const { nickname, setNickname, totalRounds, setTotalRounds } =
+    useGameContext();
   const navigate = useNavigate();
 
   const onNicknameChange = (evt) => {
-    setNickname(evt.target.value);
+    if (evt.target.value.trim()) {
+      setNickname(evt.target.value.trim());
+    }
   };
 
   const onRoundsChange = (evt) => {
-    setRounds(parseInt(evt.target.value));
+    setTotalRounds(parseInt(evt.target.value));
   };
   return (
     <Layout>
@@ -30,7 +33,8 @@ const StartPage = () => {
                 className={classes.nick_input}
                 type="text"
                 id="nickname"
-                defaultValue={nickname}
+                placeholder={`${nickname}`}
+                maxLength={12}
                 onChange={onNicknameChange}
               />
             </div>
@@ -40,8 +44,8 @@ const StartPage = () => {
                 <Button
                   className={classes.round_btn}
                   onClick={() => {
-                    if (rounds > 1) {
-                      setRounds(rounds - 1);
+                    if (totalRounds > 1) {
+                      setTotalRounds(totalRounds - 1);
                     }
                   }}
                 >
@@ -51,13 +55,13 @@ const StartPage = () => {
                   className={classes.rounds_input}
                   type="number"
                   id="rounds"
-                  value={rounds}
+                  value={totalRounds}
                   onChange={onRoundsChange}
                 />
                 <Button
                   className={classes.round_btn}
                   onClick={() => {
-                    setRounds(rounds + 1);
+                    setTotalRounds(totalRounds + 1);
                   }}
                 >
                   <img src={add} alt="add-icon" />
