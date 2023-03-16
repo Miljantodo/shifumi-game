@@ -1,142 +1,129 @@
-import React, { useEffect, useState } from "react";
+// libs
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+
+// components
 import Button from "../../components/button/Button";
 import Layout from "../../components/layout/Layout";
-import useGameContext from "../../hooks/useGameContext";
-import rock from "../../assets/rock.svg";
-import paper from "../../assets/paper.svg";
-import scissors from "../../assets/scissors.svg";
-import classes from "./PlayPage.module.scss";
 
-const choices = [rock, paper, scissors];
+// hooks
+import useGameContext from "../../hooks/useGameContext";
+
+// utils
+import { choices, choiceImages, getRandomChoice } from "../../utils/choices";
+
+// styles
+import classes from "./PlayPage.module.scss";
 
 const PlayPage = () => {
   const [userChoice, setUserChoice] = useState(null);
   const [houseChoice, setHouseChoice] = useState(null);
-  const { nickname, currentRound, setCurrentRound, totalRounds, score } =
+  const [resultMessage, setResultMessage] = useState(null);
+  const { nickname, currentRound, setCurrentRound, totalRounds, setScore } =
     useGameContext();
   const navigate = useNavigate();
 
   useEffect(() => {
-    randomHouseChoice();
     setCurrentRound(1);
-    score.user = 0;
-    score.house = 0;
+    setScore({ user: 0, house: 0 });
   }, []);
 
-  const randomHouseChoice = () => {
-    const choice = choices[Math.floor(Math.random() * choices.length)];
-    setHouseChoice(choice);
-  };
+  useEffect(() => {
+    setHouseChoice(getRandomChoice());
+    setUserChoice(null);
+    setResultMessage(null);
+  }, [currentRound]);
 
   const clickHandler = (chosen) => {
     setUserChoice(chosen);
+    calculateWinner(chosen, houseChoice);
   };
 
-  const calculateWinner = (choice1, choice2) => {
-    if (choice1 === choice2) {
-      return "The result is a tie!";
-    } else if (choice1 === rock) {
-      if (choice2 === scissors) {
-        score.user++;
-        return "You won!";
-      } else {
-        score.house++;
-        return "You lost!";
-      }
-    } else if (choice1 === paper) {
-      if ((choice2 = rock)) {
-        score.user++;
-        return "You won!";
-      } else {
-        score.house++;
-        return "You lost!";
-      }
-    } else if (choice1 === scissors) {
-      if (choice2 === paper) {
-        score.user++;
-        return "You won!";
-      } else {
-        score.house++;
-        return "You lost!";
-      }
+  const calculateWinner = (user, house) => {
+    switch (true) {
+      case user === "rock" && house === "scissors":
+      case user === "paper" && house === "rock":
+      case user === "scissors" && house === "paper":
+        setScore((oldScore) => {
+          return { user: oldScore.user + 1, house: oldScore.house };
+        });
+        setResultMessage("You won!");
+        break;
+      case user === house:
+        setResultMessage("The result is a tie!");
+        break;
+      default:
+        setScore((oldScore) => {
+          return { user: oldScore.user, house: oldScore.house + 1 };
+        });
+        setResultMessage("You lost!");
     }
-    return "Something went wrong";
+  };
+
+  const renderChoices = () => {
+    return (
+      <>
+        <div
+          className={classes.choices}
+        >{`This game has ${totalRounds} rounds total. Get ready for round ${currentRound} !`}</div>
+        <div className={classes.choices}>
+          {choices.map((choice) => {
+            return (
+              <Button
+                onClick={() => {
+                  clickHandler(choice);
+                }}
+              >
+                <img src={choiceImages[choice]} alt={`${choice}-icon`} />
+              </Button>
+            );
+          })}
+        </div>
+      </>
+    );
+  };
+
+  const renderCurrentResult = () => {
+    return (
+      <>
+        <div
+          className={classes.game_result}
+        >{`Game ${currentRound} of ${totalRounds}`}</div>
+        <div className={classes.game_result}>{resultMessage}</div>
+        <div className={classes.choices}>
+          <div className={classes.choice}>
+            {`${nickname}`}
+            <img src={choiceImages[userChoice]} alt="user-choice" />
+          </div>
+          VS
+          <div className={classes.choice}>
+            House
+            <img src={choiceImages[houseChoice]} alt="house-choice" />
+          </div>
+        </div>
+        {currentRound === totalRounds ? (
+          <Button
+            onClick={() => {
+              navigate("/result");
+            }}
+          >
+            Go to results.
+          </Button>
+        ) : (
+          <Button
+            onClick={() => {
+              setCurrentRound(currentRound + 1);
+            }}
+          >
+            Next Round.
+          </Button>
+        )}
+      </>
+    );
   };
 
   return (
-    <Layout>
-      {!userChoice && (
-        <>
-          <div
-            className={classes.choices}
-          >{`This game has ${totalRounds} rounds total. Get ready for round ${currentRound} !`}</div>
-          <div className={classes.choices}>
-            <Button
-              onClick={() => {
-                clickHandler(choices[0]);
-              }}
-            >
-              <img src={rock} alt="rock-icon" />
-            </Button>
-            <Button
-              onClick={() => {
-                clickHandler(choices[1]);
-              }}
-            >
-              <img src={paper} alt="paper-icon" />
-            </Button>
-            <Button
-              onClick={() => {
-                clickHandler(choices[2]);
-              }}
-            >
-              <img src={scissors} alt="scissors-icon" />
-            </Button>
-          </div>
-        </>
-      )}
-      {userChoice && (
-        <>
-          <div
-            className={classes.game_result}
-          >{`Game ${currentRound} of ${totalRounds}`}</div>
-          <div className={classes.game_result}>
-            {calculateWinner(userChoice, houseChoice)}
-          </div>
-          <div className={classes.choices}>
-            <div className={classes.choice}>
-              {`${nickname}`}
-              <img src={userChoice} alt="user-choice" />
-            </div>
-            VS
-            <div className={classes.choice}>
-              House
-              <img src={houseChoice} alt="house-choice" />
-            </div>
-          </div>
-          {currentRound === totalRounds ? (
-            <Button
-              onClick={() => {
-                navigate("/result");
-              }}
-            >
-              Go to results.
-            </Button>
-          ) : (
-            <Button
-              onClick={() => {
-                setCurrentRound(currentRound + 1);
-                randomHouseChoice();
-                setUserChoice(null);
-              }}
-            >
-              Next Round.
-            </Button>
-          )}
-        </>
-      )}
-    </Layout>
+    <Layout>{!resultMessage ? renderChoices() : renderCurrentResult()}</Layout>
   );
 };
 

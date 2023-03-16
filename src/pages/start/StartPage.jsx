@@ -1,10 +1,19 @@
+// libs
 import { useNavigate } from "react-router-dom";
+
+// assets
 import add from "../../assets/add.svg";
 import sub from "../../assets/subtract.svg";
+
+// components
 import Button from "../../components/button/Button";
 import Layout from "../../components/layout/Layout";
-import useGameContext from "../../hooks/useGameContext";
 import GameRules from "./game-rules/GameRules";
+
+// hooks
+import useGameContext from "../../hooks/useGameContext";
+
+// styles
 import classes from "./StartPage.module.scss";
 
 const StartPage = () => {
@@ -13,18 +22,20 @@ const StartPage = () => {
   const navigate = useNavigate();
 
   const onNicknameChange = (evt) => {
-    if (evt.target.value.trim()) {
-      setNickname(evt.target.value.trim());
+    const trimmedNickname = evt.target.value.trim();
+    if (trimmedNickname) {
+      setNickname(trimmedNickname);
     }
   };
 
   const onRoundsChange = (evt) => {
     setTotalRounds(parseInt(evt.target.value));
   };
+
   return (
     <Layout>
       <div className={classes.frame}>
-        <div className={classes.header_text}>ROCK PAPER SCISSOR</div>
+        <div className={classes.header_text}>Rock Paper Scissors</div>
         <div className={classes.container}>
           <div className={classes.game_information}>
             <div>
