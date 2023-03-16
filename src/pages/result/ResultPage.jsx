@@ -21,7 +21,7 @@ const ResultPage = () => {
       <br />
       <label className={classes.LabelRoot} htmlFor="nickname">
         Score: <br />
-        {nickname} wins:{score.user}
+        {nickname} wins: {score.user}
         <br /> House wins: {score.house}
       </label>
       <br />

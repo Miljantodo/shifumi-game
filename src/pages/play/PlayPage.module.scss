@@ -1,0 +1,17 @@
+.house_choice{
+    color: white;
+}
+.choices{
+    display: flex;
+    gap: 30px;
+    color: white;
+}
+.choice{
+    display: flex;
+    width: 101px;
+    flex-direction: column;
+}
+
+.game_result{
+    color: white;
+}
