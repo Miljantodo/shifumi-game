@@ -1,36 +1,61 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "../../components/button/Button";
 import Layout from "../../components/layout/Layout";
+import Header from "../../components/header/Header";
+import TableLabels from "./table-labels/TableLabels";
+import TableList from "./table-list/TableList";
 import useGameContext from "../../hooks/useGameContext";
 import classes from "./ResultPage.module.scss";
 
 const ResultPage = () => {
-  const { nickname, rounds, score } = useGameContext();
+  const { nickname, totalRounds, finalResult, score } = useGameContext();
   const navigate = useNavigate();
+
+  const renderTable = () => {
+    if (score.rounds.length) {
+      return score.rounds.map((round, index) => (
+        <TableList
+          key={`round-${index}`}
+          nickname={nickname}
+          round={index + 1}
+          winner={round.winner}
+          userChoice={round.user}
+          houseChoice={round.house}
+        />
+      ));
+    } else {
+      return <div>No games played.</div>;
+    }
+  };
 
   return (
     <Layout>
-      <label className={classes.LabelRoot} htmlFor="nickname">
-        Nickname: {nickname}
-      </label>
-      <br />
-      <label className={classes.LabelRoot} htmlFor="nickname">
-        Rounds: {rounds}
-      </label>
-      <br />
-      <label className={classes.LabelRoot} htmlFor="nickname">
-        Score: <br />
-        {nickname} wins: {score.totalUserScore}
-        <br /> House wins: {score.totalHouseScore}
-      </label>
-      <br />
+      <Header>{finalResult}</Header>
+      <div className={classes.table}>
+        <TableLabels
+          firstLabel={"Rounds"}
+          secondLabel={"Winner"}
+          thirdLabel={`${nickname}`}
+          fourthLabel={"House"}
+        />
+        <hr className={classes.break_line} />
+        <div>{renderTable()}</div>
+        <hr className={classes.break_line} />
+        <TableLabels
+          firstLabel={`${score.rounds.length}`}
+          secondLabel={"Winner"}
+          thirdLabel={`${score.totalUserScore}`}
+          fourthLabel={`${score.totalHouseScore}`}
+        />
+      </div>
       <Button
+        className={classes.new_game_btn}
         onClick={() => {
           navigate("/");
         }}
       >
-        Play again
+        New game
       </Button>
     </Layout>
   );

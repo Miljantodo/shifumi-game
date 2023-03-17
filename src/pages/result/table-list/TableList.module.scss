@@ -1,0 +1,13 @@
+.container {
+    display: flex;
+    padding: 8px;
+    justify-content: space-between;
+    &_part {
+        display: flex;
+        gap: 44px;
+    }
+}
+
+.winner {
+    color: #8227F1;
+}

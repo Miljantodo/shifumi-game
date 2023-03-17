@@ -1,0 +1,10 @@
+.table_main {
+    display: flex;
+    padding: 8px;
+    justify-content: space-between;
+
+    &_labels {
+      display: flex;
+      gap: 44px;
+    }
+  }

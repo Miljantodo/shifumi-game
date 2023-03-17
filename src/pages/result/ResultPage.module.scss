@@ -1,7 +1,41 @@
+.table {
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  width: 537px;
+  height: auto;
+  border: 2px solid #8227F1;
+  filter: drop-shadow(0px 2px 9px rgba(255, 255, 255, 0.3));
+  border-radius: 32px;
+  color: #F8F7FF;
 
-.LabelRoot {
-    font-size: 15px;
-    font-weight: 500;
-    line-height: 35px;
-    color: white;
+  &_main {
+    display: flex;
+    padding: 8px;
+    justify-content: space-between;
+
+    &_labels {
+      display: flex;
+      gap: 44px;
+    }
   }
+}
+
+.new_game_btn {
+  margin-top: 12px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 24px;
+  width: 135px;
+  height: 44px;
+  background: linear-gradient(90deg, #5A21E0 0%, #8227F1 100%);
+  box-shadow: 0px 2px 9px rgba(255, 255, 255, 0.15);
+  border-radius: 999px;
+}
+
+.break_line {
+  width: 100%; 
+  color: #F8F7FF; 
+}
