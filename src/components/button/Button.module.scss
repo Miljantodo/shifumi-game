@@ -16,9 +16,23 @@
   font-size: 16px;
   line-height: 145%;
   color: #F8F7FF;
+
+  &:disabled{
+    width: 78px;
+    height: 78px;
+    border-radius: 12px;
+    color: rgba(248, 247, 255, 0.35);
+    box-shadow: 0px 2px 9px rgba(255, 255, 255, 0.3);
+    background: #3B4584;
+
+    &:hover{
+      cursor: auto;
+      background: #3B4584;
+    }
+  }
 }
 
 
 .button:hover{
-  background: #5A21E0;;
+  background: #5A21E0;
 }

@@ -1,5 +1,7 @@
-@import url('https://fonts.cdnfonts.com/css/maldini');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 
 body {
   margin: 0;
@@ -18,8 +20,10 @@ input[type=number] {
 }
 
 #root {
+  background-color: #07074E;
   background-image: url("../src/assets/background-gradient.svg");
   background-size: cover;
   width: 100vw;
   height: 100vh;
+  overflow-x: hidden;
 }

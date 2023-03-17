@@ -15,6 +15,7 @@ import useGameContext from "../../hooks/useGameContext";
 
 // styles
 import classes from "./StartPage.module.scss";
+import Header from "../../components/header/Header";
 
 const StartPage = () => {
   const { nickname, setNickname, totalRounds, setTotalRounds } =
@@ -35,7 +36,7 @@ const StartPage = () => {
   return (
     <Layout>
       <div className={classes.frame}>
-        <div className={classes.header_text}>Rock Paper Scissors</div>
+        <Header>Rock Paper Scissors</Header>
         <div className={classes.container}>
           <div className={classes.game_information}>
             <div>
@@ -87,7 +88,7 @@ const StartPage = () => {
                 navigate("/play");
               }}
             >
-              START GAME
+              Start game
             </Button>
             <GameRules buttonText={"Game rules"} />
           </div>
