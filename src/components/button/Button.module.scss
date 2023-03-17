@@ -1,20 +1,17 @@
 
 .button {
   display: flex;
-  flex-direction: row;
   justify-content: center;
   align-items: center;
   width: 100%;
-  padding: 6px 15px;
   background: linear-gradient(90deg, #5A21E0 0%, #8227F1 100%);
   border-radius: 999px;
   border: none;
   cursor: pointer;
   font-family: 'Poppins', sans-serif;
   font-style: normal;
-  font-weight: 500;
+  font-weight: 400;
   font-size: 16px;
-  line-height: 145%;
   color: #F8F7FF;
 
   &:disabled{

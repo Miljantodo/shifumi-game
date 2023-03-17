@@ -1,14 +1,26 @@
-.house_choice{
-    color: white;
+.choice {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 12px 8px;
+
+    &_frame {
+        box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 120px;
+        height: 120px;
+        border: 2px solid #8227F1;
+        border-radius: 12px;
+        color: #F8F7FF;
+    }
 }
 .choices{
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0px;
     gap: 56px;
-    width: 375px;
-    height: 173.67px;
 
     &_buttons {
         display: flex;
@@ -16,29 +28,30 @@
     }
     &_stage {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         justify-content: space-around;
-        align-items: flex-start;
+        align-items: center;
         padding: 12px;
-        gap: 0px;
-        width: 375px;
-        height: 44px;
     }
-    
 }
 
 .game_result{
-    width: 140px;
-    height: 44px;
     font-family: 'Bebas Neue';
     font-style: normal;
     font-weight: 400;
     font-size: 24px;    
-    line-height: 23px;
-    text-align: center;
     letter-spacing: 0.06em;
     text-transform: uppercase;
     color: #FFFFFF;
+}
+
+.game_score {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 32px 8px 12px;
+    gap: 12px;
+    height: 100px;
 }
 
 .score_board {
@@ -53,27 +66,20 @@
 }
 
 .score_small {
-    width: 140px;
-    height: 46px;
     font-family: 'Bebas Neue';
     font-style: normal;
     font-weight: 400;
     font-size: 48px;
-    line-height: 46px;
     text-align: center;
     letter-spacing: 0.06em;
     text-transform: uppercase;
     color: #FFFFFF;
 
     &er{
-        width: 140px;
-        height: 23px;
         font-family: 'Bebas Neue';
         font-style: normal;
         font-weight: 400;
         font-size: 24px;
-        line-height: 23px;
-        text-align: center;
         letter-spacing: 0.06em;
         text-transform: uppercase;
         color: #FFFFFF;
@@ -86,7 +92,6 @@
     font-style: normal;
     font-weight: 400;
     font-size: 24px;
-    line-height: 30px;
     letter-spacing: 0.06em;
     color: #FFFFFF;
     text-transform: uppercase;
@@ -105,40 +110,6 @@
         text-transform: uppercase;
         color: #FFFFFF;  
     }
-}
-
-.choice {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 12px 8px;
-    width: 240px;
-    height: 210px;
-
-    &_frame {
-        box-sizing: border-box;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        padding: 8px;
-        gap: 8px;
-        width: 121px;
-        height: 121px;
-        border: 2px solid #8227F1;
-        border-radius: 12px;
-        color: #F8F7FF;
-    }
-}
-
-.game_score {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 32px 8px 12px;
-    gap: 11px;
-    width: 156px;
-    height: 90px;
 }
 
 .retire {
@@ -184,8 +155,6 @@
         flex-direction: row;
         justify-content: center;
         align-items: center;
-        width: 78px;
-        height: 78px;
         background: linear-gradient(90deg, #5A21E0 -13.27%, #8227F1 105.12%) !important;
         box-shadow: 0px 2px 9px rgba(255, 255, 255, 0.3) !important;
         border-radius: 16px;
@@ -211,8 +180,6 @@
         flex-direction: row;
         justify-content: center;
         align-items: center;
-        width: 78px;
-        height: 78px;
         border-radius: 12px;
         color: rgba(248, 247, 255, 0.35);
     }

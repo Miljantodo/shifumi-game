@@ -14,7 +14,7 @@ import useGameContext from "../../hooks/useGameContext";
 import { choices, choiceImages, getRandomChoice } from "../../utils/choices";
 
 // assets
-import question from "../../assets/question-mark.svg";
+import { ReactComponent as Question } from "../../assets/question-mark.svg";
 import { ReactComponent as Loop } from "../../assets/animate-choices.svg";
 
 // styles
@@ -24,12 +24,14 @@ const PlayPage = () => {
   const [userChoice, setUserChoice] = useState(null);
   const [houseChoice, setHouseChoice] = useState(null);
   const [resultMessage, setResultMessage] = useState(null);
-  const [finalWinner, setFinalWinner] = useState(null);
+
   const {
     nickname,
     currentRound,
     setCurrentRound,
     totalRounds,
+    finalResult,
+    setFinalResult,
     score,
     setScore,
   } = useGameContext();
@@ -48,12 +50,12 @@ const PlayPage = () => {
     setHouseChoice(getRandomChoice());
     setUserChoice(null);
     setResultMessage(null);
-    setFinalWinner(null);
+    setFinalResult(null);
   }, [currentRound]);
 
   useEffect(() => {
     if (currentRound === totalRounds) {
-      calculateFinalWinner();
+      calculateFinalResult();
     }
   }, [score]);
 
@@ -85,7 +87,7 @@ const PlayPage = () => {
             totalHouseScore: oldScore.totalHouseScore,
             rounds: [
               ...oldScore.rounds,
-              { user: user, house: house, winner: "User" },
+              { user: user, house: house, winner: nickname },
             ],
           };
         });
@@ -105,40 +107,69 @@ const PlayPage = () => {
         setResultMessage("House wins!");
     }
   };
-  const calculateFinalWinner = () => {
+  const calculateFinalResult = () => {
     switch (true) {
       case score.totalUserScore > score.totalHouseScore:
-        setFinalWinner("You have won!");
+        setFinalResult("You have won!");
         break;
       case score.totalHouseScore > score.totalUserScore:
-        setFinalWinner("You have lost.");
+        setFinalResult("You have lost.");
         break;
       default:
-        setFinalWinner("It's a tie.");
+        setFinalResult("It's a tie.");
     }
+  };
+
+  const renderScore = () => {
+    return (
+      <div className={classes.game_score}>
+        <div
+          className={classes.score_smaller}
+        >{`${currentRound} / ${totalRounds}`}</div>
+        <div
+          className={classes.score_small}
+        >{`${score.totalUserScore} : ${score.totalHouseScore}`}</div>
+        <div className={classes.game_result}>{resultMessage}</div>
+      </div>
+    );
   };
 
   const renderChoices = () => {
     return (
-      <div className={classes.choices_buttons}>
-        {choices.map((choice) => {
-          return (
-            <Button
-              disabled={!!userChoice}
-              className={
-                !userChoice
-                  ? classes.square_btn
-                  : userChoice === choice && classes.selected_btn
-              }
-              key={`${choice}`}
+      <div className={classes.choices}>
+        <div className={classes.choices_buttons}>
+          {choices.map((choice) => {
+            return (
+              <Button
+                disabled={!!userChoice}
+                className={
+                  !userChoice
+                    ? classes.square_btn
+                    : userChoice === choice && classes.selected_btn
+                }
+                key={`${choice}`}
+                onClick={() => {
+                  clickHandler(choice);
+                }}
+              >
+                <div className={classes.scale_btn}>{choiceImages[choice]}</div>
+              </Button>
+            );
+          })}
+        </div>
+        <div className={classes.choices_stage}>
+          {resultMessage && renderCurrentResult()}
+          {!finalResult && (
+            <button
+              className={classes.retire}
               onClick={() => {
-                clickHandler(choice);
+                navigate("/result");
               }}
             >
-              <div className={classes.scale_btn}>{choiceImages[choice]}</div>
-            </Button>
-          );
-        })}
+              Give up
+            </button>
+          )}
+        </div>
       </div>
     );
   };
@@ -173,27 +204,15 @@ const PlayPage = () => {
 
   return (
     <Layout>
-      <Header>{!userChoice ? "Your move" : finalWinner}</Header>
+      <Header>{!userChoice ? "Your move" : finalResult}</Header>
       <div className={classes.score_board}>
         <div className={classes.choice}>
           <h3 className={classes.small_header}>{`${nickname}`}</h3>
           <div className={classes.choice_frame}>
-            {userChoice ? (
-              choiceImages[userChoice]
-            ) : (
-              <img src={question} alt="question-icon" />
-            )}
+            {userChoice ? choiceImages[userChoice] : <Question />}
           </div>
         </div>
-        <div className={classes.game_score}>
-          <div
-            className={classes.score_smaller}
-          >{`${currentRound} / ${totalRounds}`}</div>
-          <div
-            className={classes.score_small}
-          >{`${score.totalUserScore} : ${score.totalHouseScore}`}</div>
-          <div className={classes.game_result}>{resultMessage}</div>
-        </div>
+        {renderScore()}
         <div className={classes.choice}>
           <h3 className={classes.small_header}>{"House"}</h3>
           <div className={classes.choice_frame}>
@@ -201,22 +220,7 @@ const PlayPage = () => {
           </div>
         </div>
       </div>
-      <div className={classes.choices}>
-        {renderChoices(userChoice)}
-        <div className={classes.choices_stage}>
-          {!finalWinner && (
-            <button
-              className={classes.retire}
-              onClick={() => {
-                navigate("/result");
-              }}
-            >
-              Give up
-            </button>
-          )}
-          {resultMessage && renderCurrentResult()}
-        </div>
-      </div>
+      {renderChoices()}
     </Layout>
   );
 };

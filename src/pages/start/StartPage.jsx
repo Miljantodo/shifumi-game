@@ -2,8 +2,8 @@
 import { useNavigate } from "react-router-dom";
 
 // assets
-import add from "../../assets/add.svg";
-import sub from "../../assets/subtract.svg";
+import { ReactComponent as Add } from "../../assets/add.svg";
+import { ReactComponent as Sub } from "../../assets/subtract.svg";
 
 // components
 import Button from "../../components/button/Button";
@@ -61,7 +61,7 @@ const StartPage = () => {
                     }
                   }}
                 >
-                  <img src={sub} alt="sub-icon" />
+                  <Sub />
                 </Button>
                 <input
                   className={classes.rounds_input}
@@ -76,7 +76,7 @@ const StartPage = () => {
                     setTotalRounds(totalRounds + 1);
                   }}
                 >
-                  <img src={add} alt="add-icon" />
+                  <Add />
                 </Button>
               </div>
             </div>

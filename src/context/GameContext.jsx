@@ -6,6 +6,7 @@ export const GameContextProvider = ({ children }) => {
   const [nickname, setNickname] = useState("Player");
   const [currentRound, setCurrentRound] = useState(1);
   const [totalRounds, setTotalRounds] = useState(1);
+  const [finalResult, setFinalResult] = useState(null);
   const [score, setScore] = useState({
     rounds: [],
     totalUserScore: 0,
@@ -18,10 +19,12 @@ export const GameContextProvider = ({ children }) => {
         nickname,
         currentRound,
         totalRounds,
+        finalResult,
         score,
         setNickname,
         setCurrentRound,
         setTotalRounds,
+        setFinalResult,
         setScore,
       }}
     >
