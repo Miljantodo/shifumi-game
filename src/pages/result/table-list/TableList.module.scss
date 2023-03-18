@@ -1,13 +1,47 @@
 .container {
     display: flex;
-    padding: 8px;
+    padding: 0 12px 0 12px;
+    height: 52px;
     justify-content: space-between;
-    &_part {
+    margin: 4px;
+    &_round {
         display: flex;
-        gap: 44px;
+        align-items: center;
+        justify-content: center;
+        width: 26px;
+    }
+    &_winner {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 48px;
+    }
+    &_left {
+        display: flex;
+        align-items: center;
+        gap: 80px;
+        font-size: 18px;  
+    }
+    &_right {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin-right: -16px;
     }
 }
 
 .winner {
     color: #8227F1;
+}
+.resize_icon {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    padding: 6px;
+    width: 64px;
+}
+
+.shadow {
+    background-color: rgb(255, 255, 255, 0.05);
+    height: 52px;
 }

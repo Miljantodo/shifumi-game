@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "../../components/button/Button";
 import Layout from "../../components/layout/Layout";
@@ -9,8 +8,18 @@ import useGameContext from "../../hooks/useGameContext";
 import classes from "./ResultPage.module.scss";
 
 const ResultPage = () => {
-  const { nickname, totalRounds, finalResult, score } = useGameContext();
+  const { nickname, finalResult, score } = useGameContext();
   const navigate = useNavigate();
+
+  const calculateWinner = () => {
+    if (score.totalUserScore > score.totalHouseScore) {
+      return nickname;
+    } else if (score.totalHouseScore > score.totalUserScore) {
+      return "House";
+    } else {
+      return "Tie";
+    }
+  };
 
   const renderTable = () => {
     if (score.rounds.length) {
@@ -44,7 +53,7 @@ const ResultPage = () => {
         <hr className={classes.break_line} />
         <TableLabels
           firstLabel={`${score.rounds.length}`}
-          secondLabel={"Winner"}
+          secondLabel={calculateWinner()}
           thirdLabel={`${score.totalUserScore}`}
           fourthLabel={`${score.totalHouseScore}`}
         />

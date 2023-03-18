@@ -3,8 +3,42 @@
     padding: 8px;
     justify-content: space-between;
 
-    &_labels {
+    &_left {
       display: flex;
-      gap: 44px;
+      align-items: center;
+      justify-content: center;
+      gap: 74px;
+
+      &_rounds {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 42px;
+      }
+      &_winner {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 42px;
+      }
+    }
+    &_right {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 42px;
+
+      &_user {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 42px;
+      }
+      &_house {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 42px;
+      }
     }
   }
