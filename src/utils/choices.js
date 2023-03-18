@@ -1,3 +1,4 @@
+// assets
 import { ReactComponent as Rock } from "../assets/rock.svg";
 import { ReactComponent as Paper } from "../assets/paper.svg";
 import { ReactComponent as Scissors } from "../assets/scissors.svg";

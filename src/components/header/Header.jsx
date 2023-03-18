@@ -1,4 +1,4 @@
-import React from "react";
+// styles
 import classes from "./Header.module.scss";
 
 const Header = ({ children }) => {

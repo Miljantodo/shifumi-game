@@ -1,10 +1,17 @@
+// libs
 import { useNavigate } from "react-router-dom";
+
+// components
 import Button from "../../components/button/Button";
 import Layout from "../../components/layout/Layout";
 import Header from "../../components/header/Header";
 import TableLabels from "./table-labels/TableLabels";
-import TableList from "./table-list/TableList";
+import TableItem from "./table-item/TableItem";
+
+// hooks
 import useGameContext from "../../hooks/useGameContext";
+
+// styles
 import classes from "./ResultPage.module.scss";
 
 const ResultPage = () => {
@@ -24,7 +31,7 @@ const ResultPage = () => {
   const renderTable = () => {
     if (score.rounds.length) {
       return score.rounds.map((round, index) => (
-        <TableList
+        <TableItem
           key={`round-${index}`}
           nickname={nickname}
           round={index + 1}
@@ -34,7 +41,7 @@ const ResultPage = () => {
         />
       ));
     } else {
-      return <div>No games played.</div>;
+      return <div className={classes.games_none}>No games played.</div>;
     }
   };
 
@@ -43,15 +50,15 @@ const ResultPage = () => {
       <Header>{finalResult}</Header>
       <div className={classes.table}>
         <TableLabels
+          className={classes.border_bot}
           firstLabel={"Rounds"}
           secondLabel={"Winner"}
           thirdLabel={`${nickname}`}
           fourthLabel={"House"}
         />
-        <hr className={classes.break_line} />
         <div>{renderTable()}</div>
-        <hr className={classes.break_line} />
         <TableLabels
+          className={classes.border_top}
           firstLabel={`${score.rounds.length}`}
           secondLabel={calculateWinner()}
           thirdLabel={`${score.totalUserScore}`}
@@ -64,7 +71,7 @@ const ResultPage = () => {
           navigate("/");
         }}
       >
-        New game
+        New Game
       </Button>
     </Layout>
   );

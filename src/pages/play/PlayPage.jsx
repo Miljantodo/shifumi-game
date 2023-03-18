@@ -54,7 +54,7 @@ const PlayPage = () => {
   }, [currentRound]);
 
   useEffect(() => {
-    if (currentRound === totalRounds) {
+    if (currentRound === totalRounds && userChoice) {
       calculateFinalResult();
     }
   }, [score]);
@@ -159,17 +159,17 @@ const PlayPage = () => {
         </div>
         <div className={classes.choices_stage}>
           {resultMessage && renderCurrentResult()}
-          {!finalResult && (
-            <button
-              className={classes.retire}
-              onClick={() => {
-                navigate("/result");
-              }}
-            >
-              Give up
-            </button>
-          )}
         </div>
+        {!finalResult && (
+          <Button
+            className={classes.retire}
+            onClick={() => {
+              navigate("/result");
+            }}
+          >
+            Concede
+          </Button>
+        )}
       </div>
     );
   };
@@ -177,7 +177,7 @@ const PlayPage = () => {
   const renderCurrentResult = () => {
     return (
       <>
-        {currentRound === totalRounds ? (
+        {currentRound === totalRounds && finalResult ? (
           <>
             <Button
               className={classes.round_btn}
@@ -187,16 +187,35 @@ const PlayPage = () => {
             >
               Results
             </Button>
+            <Button
+              className={classes.retire}
+              onClick={() => {
+                setFinalResult(null);
+                setScore({
+                  rounds: [],
+                  totalUserScore: 0,
+                  totalHouseScore: 0,
+                });
+                setUserChoice(null);
+                setCurrentRound(1);
+              }}
+            >
+              Play Again
+            </Button>
           </>
         ) : (
-          <Button
-            className={classes.round_btn}
-            onClick={() => {
-              setCurrentRound(currentRound + 1);
-            }}
-          >
-            Next Round
-          </Button>
+          <>
+            {userChoice && (
+              <Button
+                className={classes.round_btn}
+                onClick={() => {
+                  setCurrentRound(currentRound + 1);
+                }}
+              >
+                Next Round
+              </Button>
+            )}
+          </>
         )}
       </>
     );

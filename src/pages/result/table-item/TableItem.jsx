@@ -1,10 +1,15 @@
+// libs
 import classNames from "classnames";
-import { choiceImages } from "../../../utils/choices";
-import classes from "./TableList.module.scss";
 
-const TableList = ({ nickname, round, winner, userChoice, houseChoice }) => {
+// utils
+import { choiceImages } from "../../../utils/choices";
+
+// styles
+import classes from "./TableItem.module.scss";
+
+const TableItem = ({ nickname, round, winner, userChoice, houseChoice }) => {
   const isOdd = (n) => {
-    return n % 2 == 1;
+    return n % 2 === 1;
   };
 
   return (
@@ -37,4 +42,4 @@ const TableList = ({ nickname, round, winner, userChoice, houseChoice }) => {
   );
 };
 
-export default TableList;
+export default TableItem;

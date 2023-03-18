@@ -9,7 +9,7 @@
   border-radius: 32px;
   color: #F8F7FF;
   font-family: "Poppins";
-  font-weight: 400;
+  font-weight: 300;
   font-size: 14px;
 
   &_main {
@@ -25,13 +25,13 @@
 }
 
 .new_game_btn {
-  margin-top: 12px;
+  margin-top: 24px;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   padding: 8px 24px;
-  width: 135px;
+  width: 160px;
   height: 44px;
   background: linear-gradient(90deg, #5A21E0 0%, #8227F1 100%);
   box-shadow: 0px 2px 9px rgba(255, 255, 255, 0.15);
@@ -39,6 +39,24 @@
 }
 
 .break_line {
-  width: 100%; 
+  width: 528px; 
   color: #F8F7FF; 
+}
+
+.border {
+  &_top {
+    border-top: 1px solid #F8F6FF;
+  }
+  &_bot{
+    border-bottom: 1px solid #F8F6FF
+  }
+}
+
+.games_none {
+  display: flex;
+  padding: 8px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 18px;
 }

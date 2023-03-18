@@ -1,7 +1,8 @@
 .table_main {
     display: flex;
-    padding: 8px;
+    padding: 12px;
     justify-content: space-between;
+    font-weight: 400;
 
     &_left {
       display: flex;
@@ -12,13 +13,13 @@
       &_rounds {
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: flex-start;
         width: 42px;
       }
       &_winner {
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: flex;
         width: 42px;
       }
     }
@@ -33,6 +34,7 @@
         align-items: center;
         justify-content: center;
         width: 42px;
+        text-transform: capitalize;
       }
       &_house {
         display: flex;

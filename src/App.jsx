@@ -1,6 +1,10 @@
-import React from "react";
+// libs
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
+// context
 import { GameContextProvider } from "./context/GameContext";
+
+// pages
 import PlayPage from "./pages/play/PlayPage";
 import ResultPage from "./pages/result/ResultPage";
 import StartPage from "./pages/start/StartPage";

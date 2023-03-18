@@ -1,4 +1,4 @@
-import React from "react";
+// styles
 import classes from "./layout.module.scss";
 
 function Layout({ children, ...props }) {

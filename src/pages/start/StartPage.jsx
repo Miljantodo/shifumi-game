@@ -40,7 +40,7 @@ const StartPage = () => {
         <div className={classes.container}>
           <div className={classes.game_information}>
             <div>
-              <label className={classes.label}>Nickname:</label>
+              <label className={classes.label}>Nickname</label>
               <input
                 className={classes.nick_input}
                 type="text"
@@ -51,7 +51,7 @@ const StartPage = () => {
               />
             </div>
             <div className={classes.rounds}>
-              <label className={classes.label}>Number of rounds:</label>
+              <label className={classes.label}>Number of rounds</label>
               <div className={classes.rounds_information}>
                 <Button
                   className={classes.round_btn}
