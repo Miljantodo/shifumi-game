@@ -19,12 +19,13 @@ const ResultPage = () => {
   const navigate = useNavigate();
 
   const calculateWinner = () => {
-    if (score.totalUserScore > score.totalHouseScore) {
-      return nickname;
-    } else if (score.totalHouseScore > score.totalUserScore) {
-      return "House";
-    } else {
-      return "Tie";
+    switch (true) {
+      case score.totalUserScore > score.totalHouseScore:
+        return nickname;
+      case score.totalHouseScore > score.totalUserScore:
+        return "House";
+      default:
+        return "Tie";
     }
   };
 

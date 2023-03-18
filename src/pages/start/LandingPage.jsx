@@ -14,10 +14,10 @@ import GameRules from "./game-rules/GameRules";
 import useGameContext from "../../hooks/useGameContext";
 
 // styles
-import classes from "./StartPage.module.scss";
+import classes from "./LandingPage.module.scss";
 import Header from "../../components/header/Header";
 
-const StartPage = () => {
+const LandingPage = () => {
   const { nickname, setNickname, totalRounds, setTotalRounds } =
     useGameContext();
   const navigate = useNavigate();
@@ -98,4 +98,4 @@ const StartPage = () => {
   );
 };
 
-export default StartPage;
+export default LandingPage;

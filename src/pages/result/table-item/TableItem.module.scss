@@ -3,12 +3,18 @@
     padding: 0 12px 0 12px;
     height: 52px;
     justify-content: space-between;
+
+    &:nth-child(odd) {
+        background-color: rgb(255, 255, 255, 0.05);
+    }
+
     &_round {
         display: flex;
         align-items: center;
         justify-content: flex-start;
         width: 30px;
     }
+
     &_winner {
         display: flex;
         align-items: center;
@@ -16,6 +22,7 @@
         width: 48px;
         text-transform: capitalize;
     }
+
     &_left {
         display: flex;
         align-items: center;
@@ -23,6 +30,7 @@
         gap: 86px;
         font-size: 16px;  
     }
+    
     &_right {
         display: flex;
         align-items: center;
