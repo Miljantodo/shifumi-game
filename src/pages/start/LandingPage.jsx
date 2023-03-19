@@ -30,7 +30,9 @@ const LandingPage = () => {
   };
 
   const onRoundsChange = (evt) => {
-    setTotalRounds(parseInt(evt.target.value));
+    if (evt.target.value > 0 && evt.target.value <= 100) {
+      setTotalRounds(parseInt(evt.target.value));
+    }
   };
 
   return (
@@ -67,6 +69,7 @@ const LandingPage = () => {
                   className={classes.rounds_input}
                   type="number"
                   id="rounds"
+                  max={100}
                   value={totalRounds}
                   onChange={onRoundsChange}
                 />
