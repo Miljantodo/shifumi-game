@@ -1,15 +1,17 @@
+@import "../../styles/colors.scss";
+
+
 .table {
   display: flex;
   flex-direction: column;
   padding: 24px;
   width: 537px;
   height: auto;
-  border: 2px solid #8227F1;
+  border: 2px solid $purple2;
   filter: drop-shadow(0px 2px 9px rgba(255, 255, 255, 0.3));
   border-radius: 32px;
-  color: #F8F7FF;
+  color: $white;
   font-family: "Poppins";
-  font-weight: 300;
   font-size: 14px;
 
   &_main {
@@ -26,21 +28,17 @@
 
 .new_game_btn {
   margin: 30px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
   padding: 8px 24px;
   width: 160px;
   height: 44px;
-  background: linear-gradient(90deg, #5A21E0 0%, #8227F1 100%);
+  background: linear-gradient(90deg, $purple1 0%, $purple2 100%);
   box-shadow: 0px 2px 9px rgba(255, 255, 255, 0.15);
   border-radius: 999px;
 }
 
 .break_line {
   width: 528px; 
-  color: #F8F7FF; 
+  color: $white; 
 }
 
 .border {

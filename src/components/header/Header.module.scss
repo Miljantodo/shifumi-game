@@ -1,3 +1,5 @@
+@import "../../styles/colors.scss";
+
 .header {
   margin-bottom: 40px;
   height: 45px;
@@ -6,7 +8,7 @@
     font-size: 48px;
     font-weight: 400;
     letter-spacing: 0.06em;
-    color: #F8F7FF;
+    color: $white;
     text-transform: uppercase;
   }
 }

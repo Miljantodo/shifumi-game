@@ -19,10 +19,11 @@ input[type=number] {
 }
 
 #root {
-  background-color: $background-color;
+  background-color: $blue1;
   background-image: url("../assets/background-gradient.svg");
   background-size: cover;
   width: 100vw;
   height: 100vh;
   overflow-x: hidden;
 }
+

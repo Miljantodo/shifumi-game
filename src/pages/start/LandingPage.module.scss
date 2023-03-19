@@ -1,10 +1,11 @@
+@import "../../styles/colors.scss";
+
+
 .frame {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0px;
   width: 533px;
-  height: 548.31px;
 }
 
 .container {
@@ -14,7 +15,7 @@
   align-items: center;
   padding: 48px;
   gap: 64px;
-  border: 2px solid #8227F1;
+  border: 2px solid $purple2;
   border-radius: 32px;
 }
 
@@ -43,7 +44,7 @@
   padding: 8px 16px;
   width: 437px;
   height: 44px;
-  border: 1px solid #8227F1;
+  border: 1px solid $purple2;
   box-shadow: 0px 2px 9px rgba(255, 255, 255, 0.15);
   border-radius: 999px;
   background: transparent;
@@ -56,7 +57,7 @@
   &:focus{
     background: rgba(248, 247, 255, 0.04);
     color: #FFFFFF;
-    border: 1px solid #F8F7FF;
+    border: 1px solid $white;
     box-shadow: 0px 2px 9px rgba(255, 255, 255, 0.3);
     outline: none;
     }
@@ -82,7 +83,7 @@
     padding: 8px 16px;
     width: 85px;
     height: 44px;
-    border: 1px solid #8227F1;
+    border: 1px solid $purple2;
     background: transparent;
     color: rgb(248, 246, 255, 0.5);
     border-radius: 999px;
@@ -97,7 +98,7 @@
     &:focus{
       background: rgba(248, 247, 255, 0.04);
       color: #FFFFFF;
-      border: 1px solid #F8F7FF;
+      border: 1px solid $white;
       box-shadow: 0px 2px 9px rgba(255, 255, 255, 0.3);
     }
   }

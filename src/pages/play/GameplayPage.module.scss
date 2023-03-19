@@ -1,3 +1,6 @@
+@import "../../styles/colors.scss";
+
+
 .choice {
     display: flex;
     flex-direction: column;
@@ -10,9 +13,9 @@
         align-items: center;
         width: 120px;
         height: 120px;
-        border: 2px solid #8227F1;
+        border: 2px solid $purple2;
         border-radius: 12px;
-        color: #F8F7FF;
+        color: $white;
     }
 }
 
@@ -21,8 +24,8 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    width: 694px;
-    height: 240px;
+    width: 640px;
+    height: 320px;
 }
 
 .small_header {

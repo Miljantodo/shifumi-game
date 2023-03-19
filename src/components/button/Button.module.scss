@@ -1,10 +1,12 @@
+@import "../../styles/colors.scss";
+
 
 .button {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
-  background: linear-gradient(90deg, #5A21E0 0%, #8227F1 100%);
+  background: linear-gradient(90deg, $purple1 0%, $purple2 100%);
   border-radius: 999px;
   border: none;
   cursor: pointer;
@@ -12,7 +14,7 @@
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
-  color: #F8F7FF;
+  color: $white;
 
   &:disabled{
     width: 78px;
@@ -20,16 +22,16 @@
     border-radius: 12px;
     color: rgba(248, 247, 255, 0.35);
     box-shadow: 0px 2px 9px rgba(255, 255, 255, 0.3);
-    background: #3B4584;
+    background: $blue2;
 
     &:hover{
       cursor: auto;
-      background: #3B4584;
+      background: $blue2;
     }
   }
 }
 
 
 .button:hover{
-  background: #5A21E0;
+  background: $purple1;
 }

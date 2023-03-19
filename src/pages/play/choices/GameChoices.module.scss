@@ -1,3 +1,6 @@
+@import "../../../styles/colors.scss";
+
+
 .round_btn {
     width: 150px;
     height: 44px;
@@ -15,7 +18,7 @@
     background:none;
     border: none;
     cursor: pointer;
-    color: #3B4584;
+    color: $blue2;
     font-family: 'Poppins', sans-serif;
     font-style: normal;
     font-weight: 400;
@@ -32,11 +35,11 @@
         flex-direction: row;
         justify-content: center;
         align-items: center;
-        background: linear-gradient(90deg, #5A21E0 -13.27%, #8227F1 105.12%) !important;
+        background: linear-gradient(90deg, $purple1 -13.27%, $purple2 105.12%) !important;
         box-shadow: 0px 2px 9px rgba(255, 255, 255, 0.3) !important;
         border-radius: 16px;
-        color:#F8F7FF !important;
-        outline: 2px solid #8227F1;
+        color: $white !important;
+        outline: 2px solid $purple2;
         outline-offset: 4px;
     }
     &_frame {
@@ -68,7 +71,7 @@
         padding: 8px;
         width: 62px;
         height: 62px;
-        background: #3B4584;
+        background: $blue2;
         box-shadow: 0px 2px 9px rgba(255, 255, 255, 0.3);
         box-shadow: 0px 2px 9px rgba(255, 255, 255, 0.3);
         border-radius: 12px;

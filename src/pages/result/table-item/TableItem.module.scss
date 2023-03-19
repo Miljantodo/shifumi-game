@@ -1,3 +1,5 @@
+@import "../../../styles/colors.scss";
+
 .container {
     display: flex;
     padding: 0 12px 0 12px;
@@ -40,7 +42,7 @@
 }
 
 .winner {
-    color: #8227F1;
+    color: $purple2;
 }
 .resize_icon {
     box-sizing: border-box;
