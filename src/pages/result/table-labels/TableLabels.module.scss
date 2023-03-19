@@ -1,0 +1,46 @@
+.table_main {
+    display: flex;
+    padding: 12px;
+    justify-content: space-between;
+    font-weight: 400;
+
+    &_left {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 74px;
+
+      &_rounds {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        width: 42px;
+      }
+      &_winner {
+        display: flex;
+        align-items: center;
+        text-transform: capitalize;
+        width: 42px;
+      }
+    }
+    &_right {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 42px;
+
+      &_user {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 42px;
+        text-transform: capitalize;
+      }
+      &_house {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 42px;
+      }
+    }
+  }

@@ -1,4 +1,7 @@
+// libs
 import { useContext } from "react";
+
+// context
 import { GameContext } from "../context/GameContext";
 
 const useGameContext = () => {

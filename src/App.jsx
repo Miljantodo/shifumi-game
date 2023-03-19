@@ -1,19 +1,23 @@
-import React from "react";
+// libs
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
+// context
 import { GameContextProvider } from "./context/GameContext";
-import PlayPage from "./pages/play/PlayPage";
+
+// pages
+import GameplayPage from "./pages/play/GameplayPage";
 import ResultPage from "./pages/result/ResultPage";
-import StartPage from "./pages/start/StartPage";
+import LandingPage from "./pages/start/LandingPage";
 
 const App = () => {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <StartPage />,
+      element: <LandingPage />,
     },
     {
       path: "/play",
-      element: <PlayPage />,
+      element: <GameplayPage />,
     },
     {
       path: "/result",

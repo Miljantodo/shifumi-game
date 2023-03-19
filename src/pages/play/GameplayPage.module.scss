@@ -1,0 +1,67 @@
+@import "../../styles/colors.scss";
+
+
+.choice {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &_frame {
+        box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 120px;
+        height: 120px;
+        border: 2px solid $purple2;
+        border-radius: 12px;
+        color: $white;
+    }
+}
+
+.score_board {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 640px;
+    height: 320px;
+}
+
+.small_header {
+    width: 240px;
+    font-family: 'Bebas Neue';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    letter-spacing: 0.06em;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    text-align: center;
+    
+    &_smaller {
+        width: 140px;
+        height: 23px;
+        font-family: 'Poppins', sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 23px;
+        text-align: center;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: #FFFFFF;  
+    }
+}
+
+.scale_btn {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    padding: 6px;
+    width: 74px;
+    height: 74px;
+    border-radius: 12px;
+}
+
+

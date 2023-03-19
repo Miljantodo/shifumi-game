@@ -1,0 +1,125 @@
+@import "../../styles/colors.scss";
+
+
+.frame {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 533px;
+}
+
+.container {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 48px;
+  gap: 64px;
+  border: 2px solid $purple2;
+  border-radius: 32px;
+}
+
+.game_information {
+  display: flex;
+  flex-direction: column;
+  padding: 0px;
+  gap: 48px;
+}
+
+.label {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  color: #FFFFFF;
+}
+
+.nick_input {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  margin-top: 6px;
+  box-sizing: border-box;
+  padding: 8px 16px;
+  width: 437px;
+  height: 44px;
+  border: 1px solid $purple2;
+  box-shadow: 0px 2px 9px rgba(255, 255, 255, 0.15);
+  border-radius: 999px;
+  background: transparent;
+  color: rgb(248, 246, 255, 0.5);
+
+  &:hover{
+    background: rgba(130, 39, 241, 0.04);
+    box-shadow: 0px 2px 9px rgba(255, 255, 255, 0.3);
+    }
+  &:focus{
+    background: rgba(248, 247, 255, 0.04);
+    color: #FFFFFF;
+    border: 1px solid $white;
+    box-shadow: 0px 2px 9px rgba(255, 255, 255, 0.3);
+    outline: none;
+    }
+}
+
+.rounds {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  &_information {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 185px;
+  }
+  &_input{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    box-sizing: border-box;
+    padding: 8px 16px;
+    width: 85px;
+    height: 44px;
+    border: 1px solid $purple2;
+    background: transparent;
+    color: rgb(248, 246, 255, 0.5);
+    border-radius: 999px;
+    text-align: center;
+    box-shadow: 0px 2px 9px rgba(255, 255, 255, 0.15);
+    outline: none;
+
+    &:hover{
+      background: rgba(130, 39, 241, 0.04);
+      box-shadow: 0px 2px 9px rgba(255, 255, 255, 0.3);
+    }
+    &:focus{
+      background: rgba(248, 247, 255, 0.04);
+      color: #FFFFFF;
+      border: 1px solid $white;
+      box-shadow: 0px 2px 9px rgba(255, 255, 255, 0.3);
+    }
+  }
+
+}
+.game_start{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  width: 437px;
+  
+  &_btn{
+    height: 44px;
+    box-shadow: 0px 2px 9px rgba(255, 255, 255, 0.15);
+    text-transform: uppercase;
+  }
+}
+
+.round_btn {
+  width: 32px;
+  height: 32px;
+  box-shadow: 0px 2px 9px rgba(255, 255, 255, 0.15);
+}

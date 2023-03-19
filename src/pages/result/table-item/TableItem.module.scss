@@ -1,0 +1,58 @@
+@import "../../../styles/colors.scss";
+
+.container {
+    display: flex;
+    padding: 0 12px 0 12px;
+    height: 52px;
+    justify-content: space-between;
+
+    &:nth-child(odd) {
+        background-color: rgb(255, 255, 255, 0.05);
+    }
+
+    &_round {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        width: 30px;
+    }
+
+    &_winner {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        width: 48px;
+        text-transform: capitalize;
+    }
+
+    &_left {
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        gap: 86px;
+        font-size: 16px;  
+    }
+    
+    &_right {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 44px;
+    }
+}
+
+.winner {
+    color: $purple2;
+}
+.resize_icon {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    padding: 6px;
+    width: 40px;
+}
+
+.shadow {
+    background-color: rgb(255, 255, 255, 0.05);
+    height: 52px;
+}
