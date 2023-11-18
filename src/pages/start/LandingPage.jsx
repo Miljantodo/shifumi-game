@@ -29,11 +29,6 @@ const LandingPage = () => {
     }
   };
 
-  const onRoundsChange = (evt) => {
-    if (evt.target.value > 0 && evt.target.value <= 100) {
-      setTotalRounds(parseInt(evt.target.value));
-    }
-  };
 
   return (
     <Layout>
@@ -57,24 +52,21 @@ const LandingPage = () => {
               <div className={classes.rounds_information}>
                 <Button
                   className={classes.round_btn}
+                  disabled={totalRounds === 3}
                   onClick={() => {
-                    if (totalRounds > 1) {
+                    if (totalRounds > 3) {
                       setTotalRounds(totalRounds - 1);
                     }
                   }}
                 >
                   <Sub />
                 </Button>
-                <input
+                <div
                   className={classes.rounds_input}
-                  type="number"
-                  id="rounds"
-                  max={100}
-                  value={totalRounds}
-                  onChange={onRoundsChange}
-                />
+                >{totalRounds}</div>
                 <Button
                   className={classes.round_btn}
+                  disabled={totalRounds === 15}
                   onClick={() => {
                     setTotalRounds(totalRounds + 1);
                   }}
@@ -88,6 +80,7 @@ const LandingPage = () => {
             <Button
               className={classes.game_start_btn}
               onClick={() => {
+                if(!totalRounds) setTotalRounds(3)
                 navigate("/play");
               }}
             >
