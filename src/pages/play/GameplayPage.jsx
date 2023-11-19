@@ -46,7 +46,7 @@ const GameplayPage = () => {
   }, []);
 
   useEffect(() => {
-    setHouseChoice(getRandomChoice());
+    setHouseChoice(null);
     setUserChoice(null);
     setResultMessage(null);
     setFinalResult(null);
@@ -58,9 +58,15 @@ const GameplayPage = () => {
     }
   }, [score]);
 
+  useEffect(() => {
+    if (userChoice !== null) {
+      calculateWinner(userChoice, houseChoice);
+    }
+  }, [userChoice]);
+
   const clickHandler = (chosen) => {
+    setHouseChoice(getRandomChoice());
     setUserChoice(chosen);
-    calculateWinner(chosen, houseChoice);
   };
 
   const calculateWinner = (user, house) => {
