@@ -1,4 +1,4 @@
-@import "../../../styles/colors.scss";
+@import "../../styles/colors.scss";
 
 .container {
     display: flex;
@@ -10,14 +10,14 @@
         background-color: rgb(255, 255, 255, 0.05);
     }
 
-    &_round {
+    &_first {
         display: flex;
         align-items: center;
         justify-content: flex-start;
         width: 30px;
     }
 
-    &_winner {
+    &_second {
         display: flex;
         align-items: center;
         justify-content: flex-start;

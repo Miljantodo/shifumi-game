@@ -1,0 +1,71 @@
+@import "../../../styles/colors.scss";
+
+.overlay {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color:rgb(0, 0, 0, 0.5);
+    overflow-y: none;
+    backdrop-filter: blur(3px);
+  }
+
+  .modal{
+    outline: none;
+    padding: 0px;
+  }
+
+
+.score_board{
+    text-transform: uppercase;
+    background:none;
+    border: none;
+    cursor: pointer;
+    color: $blue2;
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    &:hover{
+      color: rgb(248, 246, 255, 0.5);
+    }
+  }
+
+  .table {
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    width: 537px;
+    height: auto;
+    border: 2px solid $purple2;
+    background-color: $blue1;
+    filter: drop-shadow(0px 2px 9px rgba(255, 255, 255, 0.3));
+    border-radius: 32px;
+    color: $white;
+    font-family: "Poppins";
+    font-size: 14px;
+  
+    &_main {
+      display: flex;
+      padding: 8px;
+      justify-content: space-between;
+  
+      &_labels {
+        display: flex;
+        gap: 44px;
+      }
+    }
+  }
+
+  .border {
+    &_top {
+      border-top: 1px solid #F8F6FF;
+    }
+    &_bot{
+      border-bottom: 1px solid #F8F6FF
+    }
+  }

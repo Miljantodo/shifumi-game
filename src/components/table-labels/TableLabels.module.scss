@@ -10,13 +10,13 @@
       justify-content: center;
       gap: 74px;
 
-      &_rounds {
+      &_first {
         display: flex;
         align-items: center;
         justify-content: flex-start;
         width: 42px;
       }
-      &_winner {
+      &_second {
         display: flex;
         align-items: center;
         text-transform: capitalize;
@@ -29,14 +29,14 @@
       justify-content: center;
       gap: 42px;
 
-      &_user {
+      &_third {
         display: flex;
         align-items: center;
         justify-content: center;
         width: 42px;
         text-transform: capitalize;
       }
-      &_house {
+      &_fourth {
         display: flex;
         align-items: center;
         justify-content: center;

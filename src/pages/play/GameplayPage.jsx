@@ -26,7 +26,7 @@ const GameplayPage = () => {
   const [resultMessage, setResultMessage] = useState(null);
 
   const {
-    nickname,
+    username,
     currentRound,
     setCurrentRound,
     totalRounds,
@@ -90,10 +90,10 @@ const GameplayPage = () => {
           totalUserScore: score.totalUserScore + 1,
           rounds: [
             ...score.rounds,
-            { user: user, house: house, winner: nickname },
+            { user: user, house: house, winner: username },
           ],
         };
-        newMessage = `${nickname} wins!`;
+        newMessage = `${username} wins!`;
         break;
       default:
         newScore = {
@@ -132,7 +132,7 @@ const GameplayPage = () => {
       <Header>{!userChoice ? "Your move" : finalResult}</Header>
       <div className={classes.score_board}>
         <div className={classes.choice}>
-          <h3 className={classes.small_header}>{`${nickname}`}</h3>
+          <h3 className={classes.small_header}>{`${username}`}</h3>
           <div className={classes.choice_frame}>
             {userChoice ? choiceImages[userChoice] : <Question />}
           </div>

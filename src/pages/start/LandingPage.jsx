@@ -16,16 +16,17 @@ import useGameContext from "../../hooks/useGameContext";
 // styles
 import classes from "./LandingPage.module.scss";
 import Header from "../../components/header/Header";
+import ScoreBoard from "./score-board/ScoreBoard";
 
 const LandingPage = () => {
-  const { nickname, setNickname, totalRounds, setTotalRounds } =
+  const { username, setUsername, totalRounds, setTotalRounds } =
     useGameContext();
   const navigate = useNavigate();
 
-  const onNicknameChange = (evt) => {
-    const trimmedNickname = evt.target.value.trim();
-    if (trimmedNickname) {
-      setNickname(trimmedNickname);
+  const onUsernameChange = (evt) => {
+    const trimmedUsername = evt.target.value.trim();
+    if (trimmedUsername) {
+      setUsername(trimmedUsername);
     }
   };
 
@@ -37,14 +38,14 @@ const LandingPage = () => {
         <div className={classes.container}>
           <div className={classes.game_information}>
             <div>
-              <label className={classes.label}>Nickname</label>
+              <label className={classes.label}>Username</label>
               <input
                 className={classes.nick_input}
                 type="text"
-                id="nickname"
-                placeholder={`${nickname}`}
+                id="username"
+                placeholder={`${username}`}
                 maxLength={12}
-                onChange={onNicknameChange}
+                onChange={onUsernameChange}
               />
             </div>
             <div className={classes.rounds}>
@@ -87,6 +88,7 @@ const LandingPage = () => {
               Start game
             </Button>
             <GameRules buttonText={"Game rules"} />
+            <ScoreBoard buttonText={"Scoreboard"}/>
           </div>
         </div>
       </div>
