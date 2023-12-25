@@ -12,6 +12,7 @@ export const GameContextProvider = ({ children }) => {
     rounds: [],
     totalUserScore: 0,
     totalHouseScore: 0,
+    totalTies: 0
   });
 
   return (

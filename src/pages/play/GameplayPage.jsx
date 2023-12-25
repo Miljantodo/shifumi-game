@@ -42,6 +42,7 @@ const GameplayPage = () => {
       rounds: [],
       totalUserScore: 0,
       totalHouseScore: 0,
+      totalTies: 0
     });
   }, []);
 
@@ -76,6 +77,7 @@ const GameplayPage = () => {
     switch (true) {
       case user === house:
         newScore = {
+          totalTies: score.totalTies + 1,
           rounds: [
             ...score.rounds,
             { user: user, house: house, winner: "Tie" },

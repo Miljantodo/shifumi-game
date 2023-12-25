@@ -25,9 +25,9 @@ app.get('/api', async function(req, res) {
 app.post('/submit', async (req, res) => {
     try {
         const { username, score } = req.body;
-        const { totalUserScore, rounds } = score;
+        const { totalUserScore, totalTies, rounds } = score;
 
-        const Score = new Highscore(username, totalUserScore * 100, rounds.length);
+        const Score = new Highscore(username, (totalUserScore+(totalTies/2)) * ((totalUserScore+(totalTies/2))/rounds.length) * 100, rounds.length);
 
         await dbOperation.insertScore(Score, rounds);
         
