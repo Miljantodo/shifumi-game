@@ -16,22 +16,17 @@ import useGameContext from "../../hooks/useGameContext";
 // styles
 import classes from "./LandingPage.module.scss";
 import Header from "../../components/header/Header";
+import ScoreBoard from "./score-board/ScoreBoard";
 
 const LandingPage = () => {
-  const { nickname, setNickname, totalRounds, setTotalRounds } =
+  const { username, setUsername, totalRounds, setTotalRounds } =
     useGameContext();
   const navigate = useNavigate();
 
-  const onNicknameChange = (evt) => {
-    const trimmedNickname = evt.target.value.trim();
-    if (trimmedNickname) {
-      setNickname(trimmedNickname);
-    }
-  };
-
-  const onRoundsChange = (evt) => {
-    if (evt.target.value > 0 && evt.target.value <= 100) {
-      setTotalRounds(parseInt(evt.target.value));
+  const onUsernameChange = (evt) => {
+    const trimmedUsername = evt.target.value.trim();
+    if (trimmedUsername) {
+      setUsername(trimmedUsername);
     }
   };
 
@@ -42,14 +37,14 @@ const LandingPage = () => {
         <div className={classes.container}>
           <div className={classes.game_information}>
             <div>
-              <label className={classes.label}>Nickname</label>
+              <label className={classes.label}>Username</label>
               <input
                 className={classes.nick_input}
                 type="text"
-                id="nickname"
-                placeholder={`${nickname}`}
+                id="username"
+                placeholder={`${username}`}
                 maxLength={12}
-                onChange={onNicknameChange}
+                onChange={onUsernameChange}
               />
             </div>
             <div className={classes.rounds}>
@@ -57,24 +52,21 @@ const LandingPage = () => {
               <div className={classes.rounds_information}>
                 <Button
                   className={classes.round_btn}
+                  disabled={totalRounds === 3}
                   onClick={() => {
-                    if (totalRounds > 1) {
+                    if (totalRounds > 3) {
                       setTotalRounds(totalRounds - 1);
                     }
                   }}
                 >
                   <Sub />
                 </Button>
-                <input
+                <div
                   className={classes.rounds_input}
-                  type="number"
-                  id="rounds"
-                  max={100}
-                  value={totalRounds}
-                  onChange={onRoundsChange}
-                />
+                >{totalRounds}</div>
                 <Button
                   className={classes.round_btn}
+                  disabled={totalRounds === 15}
                   onClick={() => {
                     setTotalRounds(totalRounds + 1);
                   }}
@@ -88,12 +80,14 @@ const LandingPage = () => {
             <Button
               className={classes.game_start_btn}
               onClick={() => {
+                if(!totalRounds) setTotalRounds(3)
                 navigate("/play");
               }}
             >
               Start game
             </Button>
             <GameRules buttonText={"Game rules"} />
+            <ScoreBoard buttonText={"Scoreboard"}/>
           </div>
         </div>
       </div>

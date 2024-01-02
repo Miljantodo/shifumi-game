@@ -50,6 +50,7 @@ const GameChoices = ({
                   rounds: [],
                   totalUserScore: 0,
                   totalHouseScore: 0,
+                  totalTies: 0
                 });
                 setUserChoice(null);
                 setCurrentRound(1);

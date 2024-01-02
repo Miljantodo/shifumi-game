@@ -16,7 +16,7 @@ const GameRules = ({ buttonText }) => {
   Modal.setAppElement("#root");
 
   return (
-    <div className="center">
+    <div>
       {
         <button onClick={openModal} className={classes.game_rules}>
           {buttonText}

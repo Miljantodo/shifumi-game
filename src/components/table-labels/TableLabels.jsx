@@ -14,12 +14,12 @@ const TableLabels = ({
   return (
     <div className={classNames(classes.table_main, className)}>
       <div className={classes.table_main_left}>
-        <div className={classes.table_main_left_rounds}>{firstLabel}</div>
-        <div className={classes.table_main_left_winner}>{secondLabel}</div>
+        <div className={classes.table_main_left_first}>{firstLabel}</div>
+        <div className={classes.table_main_left_second}>{secondLabel}</div>
       </div>
       <div className={classes.table_main_right}>
-        <div className={classes.table_main_right_user}>{thirdLabel}</div>
-        <div className={classes.table_main_right_house}>{fourthLabel}</div>
+        <div className={classes.table_main_right_third}>{thirdLabel}</div>
+        <div className={classes.table_main_right_fourth}>{fourthLabel}</div>
       </div>
     </div>
   );
