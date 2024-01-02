@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Modal from "react-modal";
 import classes from "./ScoreBoard.module.scss";
 
@@ -21,14 +21,17 @@ const ScoreBoard = ({ buttonText }) => {
 
         const newData = await response.json();
         setScoreboardData(newData);
-        setIsOpen(true);
     } catch (error) {
         console.error('Error fetching data:', error);
     }
   }
 
-  function openModal() {
+  useEffect(() => {
     getData('/api');
+  }, [])
+
+  function openModal() {
+    setIsOpen(true);
   }
   function closeModal() {
     setIsOpen(false);
@@ -65,7 +68,7 @@ const ScoreBoard = ({ buttonText }) => {
   return (
     <div>
       {
-        <button onClick={openModal} className={classes.score_board}>
+        !!scoreboardData.length && <button onClick={openModal} className={classes.score_board}>
           {buttonText}
         </button>
       }

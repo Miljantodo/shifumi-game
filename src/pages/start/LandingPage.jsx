@@ -30,7 +30,6 @@ const LandingPage = () => {
     }
   };
 
-
   return (
     <Layout>
       <div className={classes.frame}>
