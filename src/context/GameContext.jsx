@@ -4,7 +4,7 @@ import { createContext, useState } from "react";
 export const GameContext = createContext();
 
 export const GameContextProvider = ({ children }) => {
-  const [username, setUsername] = useState("Player");
+  const [username, setUsername] = useState("Igrač");
   const [currentRound, setCurrentRound] = useState(1);
   const [totalRounds, setTotalRounds] = useState(3);
   const [finalResult, setFinalResult] = useState(null);

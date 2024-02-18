@@ -40,9 +40,9 @@ const ResultPage = () => {
         postData('/submit', { username, score });
         return username;
       case score.totalHouseScore > score.totalUserScore:
-        return "House";
+        return "Kuća";
       default:
-        return "Tie";
+        return "Nerješeno";
     }
   };
 
@@ -60,7 +60,7 @@ const ResultPage = () => {
         />
       ));
     } else {
-      return <div className={classes.games_none}>No games played.</div>;
+      return <div className={classes.games_none}>Nije odigrana nijedna runda.</div>;
     }
   };
 
@@ -70,10 +70,10 @@ const ResultPage = () => {
       <div className={classes.table}>
         <TableLabels
           className={classes.border_bot}
-          firstLabel={"Rounds"}
-          secondLabel={"Winner"}
+          firstLabel={"Runda"}
+          secondLabel={"Pobjednik"}
           thirdLabel={`${username}`}
-          fourthLabel={"House"}
+          fourthLabel={"Kuća"}
         />
         <div>{renderTable()}</div>
         <TableLabels
@@ -90,7 +90,7 @@ const ResultPage = () => {
           navigate("/");
         }}
       >
-        New Game
+        Nova igra
       </Button>
     </Layout>
   );

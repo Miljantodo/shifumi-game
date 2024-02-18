@@ -26,7 +26,7 @@ const TableItem = ({ username, first, second, third, fourth, userChoice, houseCh
           <div
             className={classNames(
               classes.resize_icon,
-              second === "House" ? classes.winner : ""
+              second === "Kuća" ? classes.winner : ""
             )}
           >
             {choiceImages[houseChoice]}

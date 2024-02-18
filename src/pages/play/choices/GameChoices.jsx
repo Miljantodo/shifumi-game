@@ -40,7 +40,7 @@ const GameChoices = ({
                 navigate("/result");
               }}
             >
-              Results
+              Rezultat
             </Button>
             <Button
               className={classes.retire}
@@ -56,7 +56,7 @@ const GameChoices = ({
                 setCurrentRound(1);
               }}
             >
-              Play Again
+              Igraj opet
             </Button>
           </>
         ) : (
@@ -68,7 +68,7 @@ const GameChoices = ({
                   setCurrentRound(currentRound + 1);
                 }}
               >
-                Next Round
+                Sljedeća runda
               </Button>
             )}
           </>
@@ -110,7 +110,7 @@ const GameChoices = ({
               navigate("/result");
             }}
           >
-            Concede
+            Predaja
           </Button>
         )}
       </div>

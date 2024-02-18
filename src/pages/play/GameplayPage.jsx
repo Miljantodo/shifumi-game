@@ -80,10 +80,10 @@ const GameplayPage = () => {
           totalTies: score.totalTies + 1,
           rounds: [
             ...score.rounds,
-            { user: user, house: house, winner: "Tie" },
+            { user: user, house: house, winner: "Nerješeno" },
           ],
         };
-        newMessage = "Tie!";
+        newMessage = "Nerješeno!";
         break;
       case user === "rock" && house === "scissors":
       case user === "paper" && house === "rock":
@@ -95,17 +95,17 @@ const GameplayPage = () => {
             { user: user, house: house, winner: username },
           ],
         };
-        newMessage = `${username} wins!`;
+        newMessage = `${username} je pobjednik!`;
         break;
       default:
         newScore = {
           totalHouseScore: score.totalHouseScore + 1,
           rounds: [
             ...score.rounds,
-            { user: user, house: house, winner: "House" },
+            { user: user, house: house, winner: "Kuća" },
           ],
         };
-        newMessage = "House wins!";
+        newMessage = "Kuća je pobjednik!";
     }
 
     setResultMessage(newMessage);
@@ -117,13 +117,13 @@ const GameplayPage = () => {
 
     switch (true) {
       case score.totalUserScore > score.totalHouseScore:
-        newfinalResult = "You have won!";
+        newfinalResult = "Pobjedio si!";
         break;
       case score.totalHouseScore > score.totalUserScore:
-        newfinalResult = "You have lost.";
+        newfinalResult = "Izgubio si.";
         break;
       default:
-        newfinalResult = "It's a tie.";
+        newfinalResult = "Nerješeno.";
     }
 
     setFinalResult(newfinalResult);
@@ -131,7 +131,7 @@ const GameplayPage = () => {
 
   return (
     <Layout>
-      <Header>{!userChoice ? "Your move" : finalResult}</Header>
+      <Header>{!userChoice ? "Tvoj potez" : finalResult}</Header>
       <div className={classes.score_board}>
         <div className={classes.choice}>
           <h3 className={classes.small_header}>{`${username}`}</h3>
@@ -141,7 +141,7 @@ const GameplayPage = () => {
         </div>
         <GameScore resultMessage={resultMessage} />
         <div className={classes.choice}>
-          <h3 className={classes.small_header}>{"House"}</h3>
+          <h3 className={classes.small_header}>{"Kuća"}</h3>
           <div className={classes.choice_frame}>
             {userChoice ? choiceImages[houseChoice] : <Loop />}
           </div>

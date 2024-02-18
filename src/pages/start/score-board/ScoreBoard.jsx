@@ -81,10 +81,10 @@ const ScoreBoard = ({ buttonText }) => {
       <div className={classes.table}>
         <TableLabels
           className={classes.border_bot}
-          firstLabel={"Date"}
-          secondLabel={"Username"}
-          thirdLabel={"Rounds"}
-          fourthLabel={"Score"}
+          firstLabel={"Datum"}
+          secondLabel={"Korisnik"}
+          thirdLabel={"Runde"}
+          fourthLabel={"Rezultat"}
         />
         <div>{renderTable()}</div>
       </div>

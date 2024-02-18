@@ -33,11 +33,11 @@ const LandingPage = () => {
   return (
     <Layout>
       <div className={classes.frame}>
-        <Header>Rock Paper Scissors</Header>
+        <Header>List kamen makaze</Header>
         <div className={classes.container}>
           <div className={classes.game_information}>
             <div>
-              <label className={classes.label}>Username</label>
+              <label className={classes.label}>Korisničko ime</label>
               <input
                 className={classes.nick_input}
                 type="text"
@@ -48,7 +48,7 @@ const LandingPage = () => {
               />
             </div>
             <div className={classes.rounds}>
-              <label className={classes.label}>Number of rounds</label>
+              <label className={classes.label}>Broj rundi</label>
               <div className={classes.rounds_information}>
                 <Button
                   className={classes.round_btn}
@@ -84,10 +84,10 @@ const LandingPage = () => {
                 navigate("/play");
               }}
             >
-              Start game
+              Započni igru
             </Button>
-            <GameRules buttonText={"Game rules"} />
-            <ScoreBoard buttonText={"Scoreboard"}/>
+            <GameRules buttonText={"Pravila igre"} />
+            <ScoreBoard buttonText={"Najbolji rezultati"}/>
           </div>
         </div>
       </div>
